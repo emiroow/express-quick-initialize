@@ -1,4 +1,4 @@
-import { getTestController } from "@/controllers/test.controller";
+import { getTestController } from "@controllers/test.controller";
 import { Router } from "express";
 
 const router = Router();

@@ -1,4 +1,4 @@
-import { responseHandler } from "@/utils/common";
+import { responseHandler } from "@utils/common";
 import { Request, Response } from "express";
 
 export const getTestController = async (req: Request, res: Response) => {

@@ -1,9 +1,10 @@
+import connectDB from "@config/mongoDB";
+import { apiRouter } from "@routes/api";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import express, { Request, Response } from "express";
-import "module-alias/register"; // Needed for module-alias to work
-import { apiRouter } from "./routes/api";
+import express from "express";
+import "module-alias/register";
 
 dotenv.config();
 
@@ -11,11 +12,9 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(express.json());
+connectDB();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, World!");
-});
+app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "10mb" }));

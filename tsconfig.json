@@ -2,18 +2,42 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "baseUrl": "./",
+    "moduleResolution": "node",
+    "types": ["node", "express"],
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@config/*": ["config/*"],
+      "@controllers/*": ["controllers/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@interface/*": ["interface/*"],
+      "@models/*": ["models/*"],
+      "@routes/*": ["routes/*"],
+      "@schemas/*": ["schemas/*"],
+      "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"],
+      "@common/*": ["utils/common/*"],
+      "@helper/*": ["utils/helper/*"],
+      "@validations/*": ["validations/*"],
+      "@validations": ["schemas/validations"],
+      "@data": ["schemas/data"]
+    },
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "esModuleInterop": true,
-  "resolveJsonModule": true,
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {
+    "swc": false
+  }
 }

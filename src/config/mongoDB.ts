@@ -1,5 +1,9 @@
+import dotenv from "dotenv";
 import mongoose from "mongoose";
-const uri = process.env.DB_CONNECTION || "mongodb://localhost:27017/test";
+
+dotenv.config();
+
+const uri = process.env.DB_CONNECTION;
 
 const connectDB = async (): Promise<void> => {
   try {

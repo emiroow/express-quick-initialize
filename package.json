@@ -1,15 +1,27 @@
 {
-  "name": "magic-portfolio-server",
+  "name": "express-quick-initialize",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
-    "build": "tsc --build"
+    "start": "cross-env NODE_ENV=production node -r module-alias/register dist/app.js",
+    "build": "tsc --build",
+    "dev": "cross-env NODE_ENV=development nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts"
   },
   "_moduleAliases": {
-    "@": "dist"
+    "@config": "dist/config",
+    "@controllers": "dist/controllers",
+    "@middlewares": "dist/middlewares",
+    "@interface": "dist/interface",
+    "@models": "dist/models",
+    "@utils": "dist/utils",
+    "@common": "dist/utils/common",
+    "@helper": "dist/utils/helper",
+    "@routes": "dist/routes",
+    "@schemas": "dist/schemas",
+    "@types": "dist/types",
+    "@validations": "dist/schemas/validations",
+    "@data": "dist/schemas/data"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +29,10 @@
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
+    "express-async-errors": "^3.1.1",
+    "express-async-handler": "^1.2.0",
     "express": "^4.21.2",
     "module-alias": "^2.2.3",
     "mongoose": "^8.9.3",
@@ -28,6 +43,8 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.5",
     "nodemon": "^3.1.9",
+    "tsconfig-paths": "^4.2.0",
+    "@types/module-alias": "^2.0.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
